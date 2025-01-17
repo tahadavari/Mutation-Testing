@@ -10,7 +10,7 @@ public partial class AccessModifierChangeMutator : IMutator
     public string ApplyMutation(string originalContent)
     {
         var mutatedContent = originalContent;
-        
+
         mutatedContent = MyRegex().Replace(mutatedContent, match =>
         {
             var accessModifier = match.Groups[1].Value;
@@ -23,12 +23,12 @@ public partial class AccessModifierChangeMutator : IMutator
                 _ => "private"
             };
 
-            return $"{newAccessModifier} {declaration};";
+            return $"{newAccessModifier} {declaration}";
         });
 
         return mutatedContent;
     }
 
-    [GeneratedRegex(@"\b(public|private|protected)?\s*(\w+\s*\w+);")]
+    [GeneratedRegex(@"\b(public|private|protected)\b")]
     private static partial Regex MyRegex();
 }

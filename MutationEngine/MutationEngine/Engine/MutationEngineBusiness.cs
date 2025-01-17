@@ -10,7 +10,8 @@ public static class MutationEngineBusiness
     {
         List<IMutator> mutators =
         [
-            new AccessModifierChangeMutator()
+            new AccessModifierChangeMutator(),
+            new HidingVariableDeletionMutator()
         ];
 
         var totalScore = 0.0;
@@ -20,13 +21,13 @@ public static class MutationEngineBusiness
         {
             var mutatedContent = mutator.ApplyMutation(originalContent);
 
-            FileHandler.SaveFile(solutionPath, "Program.cs", mutatedContent);
+            FileHandler.SaveFile(programFilePath, mutatedContent);
 
-            var score = TestExecutor.ExecuteTestsAndCalculateScore(solutionPath);
+            var result = TestExecutor.ExecuteTestsAndCalculateScore(solutionPath);
 
-            Console.WriteLine($"Mutation: {mutator.Name} - Score: {score.FailedTests}");
+            Console.WriteLine($"Mutation: {mutator.Name} - Score: {result.Score}");
 
-            FileHandler.SaveFile(solutionPath, "Program.cs", originalContent);
+            FileHandler.SaveFile(programFilePath, originalContent);
         }
 
         var averageScore = totalScore / mutators.Count;

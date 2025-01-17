@@ -1,4 +1,4 @@
-﻿namespace LibraryManagment;
+namespace LibraryManagment;
 
 public class Person
 {

@@ -29,7 +29,7 @@ namespace MutationEngine.Engine
             var result = new TestExecutionResult
             {
                 PassedTests = GetTestCount(output, "Passed"),
-                FailedTests = GetTestCount(output, "Failed")
+                FailedTests = GetTestCount(output, "Failed"), 
             };
 
             return result;
