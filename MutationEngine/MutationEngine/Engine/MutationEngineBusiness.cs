@@ -10,13 +10,20 @@ public static class MutationEngineBusiness
     {
         List<IMutator> mutators =
         [
-            new AccessModifierChangeMutator(),
-            new HidingVariableDeletionMutator(),
-            new HidingVariableInsertionMutator(),
-            new OverridingMethodDeletion(),
-            // new SuperKeywordInsertion() // ToDo Complete the implementation
-            new SuperKeywordDeletion(),
-            new ExplicitCallOfAParentConstructorDeletion()
+            // ToDo Complete the implementation
+            // new SuperKeywordInsertion() 
+            // new NewMethodCallWithChildClassType()
+
+            // ToDo Compile error
+            // new AccessModifierChangeMutator(),
+
+            // new HidingVariableDeletionMutator(),
+            // new HidingVariableInsertionMutator(),
+            // new OverridingMethodDeletion(),
+            // new SuperKeywordDeletion(),
+            // new ExplicitCallOfAParentConstructorDeletion(),
+            // new ThisKeywordInsertion()
+            // new ThisKeywordDeletion()
         ];
 
         var totalScore = 0.0;

@@ -126,7 +126,7 @@ public class LibraryTests
         // Assert
         Assert.NotEqual("1", actual);
     }
-    
+
     [Fact]
     public void GetBaseRole_ShouldReturnPersonRole()
     {
@@ -139,7 +139,7 @@ public class LibraryTests
         // Assert
         Assert.Equal("Person", actual);
     }
-    
+
     [Fact]
     public void FullName_ShouldBeNameAndFamily()
     {
@@ -151,5 +151,33 @@ public class LibraryTests
 
         // Assert
         Assert.Equal("Bob Doe", actual);
+    }
+
+    [Fact]
+    public void AddRandomEducationalBook_ShouldAddEducationalBookToLibrary()
+    {
+        // Arrange
+        var libraryBooks = new List<Book>();
+        var manager = new LibraryManager("Alice", "M123");
+
+        // Act
+        var actual = manager.AddRandomEducationalBook(libraryBooks);
+
+        // Assert
+        Assert.Equal(actual.GetBookType(), "Educational Book");
+    }
+
+    [Fact]
+    public void PersonSetNationalCode_SetCorrectNationaCode()
+    {
+        // Arrange
+        const string nationalCode = "11111";
+        var person = new Person("Bob");
+
+        // Act
+        person.SetNationalCode(nationalCode);
+
+        // Assert
+        Assert.Equal(nationalCode, person.nationalCode);
     }
 }

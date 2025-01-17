@@ -9,6 +9,13 @@ public class Person
     public string Language { get; set; } = "Fa-ir";
     public string Role { get; set; } = "Person";
 
+    public string nationalCode { get; set; } = "Unknown";
+
+    public void SetNationalCode(string nationalCode)
+    {
+        this.nationalCode = nationalCode;
+    }
+
 
     public Person(string name = "Unknown", string family = "Unknown")
     {
@@ -94,6 +101,23 @@ public class Book
         Title = title;
         Author = author;
     }
+
+    public virtual string GetBookType()
+    {
+        return "Book";
+    }
+}
+
+public class EducationalBook : Book
+{
+    public EducationalBook(string title, string author) : base(title, author)
+    {
+    }
+
+    public override string GetBookType()
+    {
+        return "Educational Book";
+    }
 }
 
 public class LibraryManager : Person
@@ -102,10 +126,19 @@ public class LibraryManager : Person
     {
     }
 
-    public void AddBook(List<Book> books, Book book)
+    public Book AddBook(List<Book> books, Book book)
     {
         books.Add(book);
         Console.WriteLine($"Book added: {book.Title} by {book.Author}");
+        return book;
+    }
+
+    public Book AddRandomEducationalBook(List<Book> books)
+    {
+        var book = new EducationalBook("Random Educational Book", "Random Author");
+        books.Add(book);
+        Console.WriteLine($"Book added: {book.Title} by {book.Author}");
+        return book;
     }
 
     public void RemoveBook(List<Book> books, Book book)
