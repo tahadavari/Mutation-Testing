@@ -100,4 +100,17 @@ public class LibraryTests
         // Assert
         Assert.Equal("Fa-ir", actual);
     }
+    
+    [Fact]
+    public void MemberGetInfo_ShouldReturnMemberInfo()
+    {
+        // Arrange
+        var member = new LibraryMember("Bob");
+
+        // Act
+        var actual = member.GetInfo();
+
+        // Assert
+        Assert.Equal("Member Info: Name: Bob, ID: 1", actual);
+    }
 }

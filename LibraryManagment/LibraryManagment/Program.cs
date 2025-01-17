@@ -12,6 +12,11 @@ public class Person
         ID = "1";
     }
 
+    public virtual string GetInfo()
+    {
+        return $"Name: {Name}, ID: {ID}";
+    }
+
     public virtual void ShowDetails()
     {
         Console.WriteLine($"Name: {Name}, ID: {ID}");
@@ -22,9 +27,15 @@ public class LibraryMember : Person
 {
     public List<Book> BorrowedBooks { get; set; }
     public string ID { get; set; } = Guid.NewGuid().ToString();
+
     public LibraryMember(string name) : base(name)
     {
         BorrowedBooks = new List<Book>();
+    }
+
+    public override string GetInfo()
+    {
+        return "Member Info: " + base.GetInfo();
     }
 
 

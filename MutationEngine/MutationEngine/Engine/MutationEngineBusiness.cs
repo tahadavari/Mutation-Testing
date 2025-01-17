@@ -12,7 +12,8 @@ public static class MutationEngineBusiness
         [
             // new AccessModifierChangeMutator(),
             // new HidingVariableDeletionMutator(),
-            new HidingVariableInsertionMutator()
+            // new HidingVariableInsertionMutator(),
+            // new OverridingMethodDeletion()
         ];
 
         var totalScore = 0.0;
