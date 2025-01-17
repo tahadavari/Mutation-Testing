@@ -20,7 +20,7 @@ public class Person
 public class LibraryMember : Person
 {
     public List<Book> BorrowedBooks { get; set; }
-    // public string ID { get; set; } = Guid.NewGuid().ToString();
+    public string ID { get; set; } = Guid.NewGuid().ToString();
 
     public LibraryMember(string name) : base(name)
     {
