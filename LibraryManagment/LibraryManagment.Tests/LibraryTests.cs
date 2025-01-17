@@ -139,4 +139,17 @@ public class LibraryTests
         // Assert
         Assert.Equal("Person", actual);
     }
+    
+    [Fact]
+    public void FullName_ShouldBeNameAndFamily()
+    {
+        // Arrange
+        var member = new LibraryMember("Bob", "Doe");
+
+        // Act
+        var actual = member.FullName;
+
+        // Assert
+        Assert.Equal("Bob Doe", actual);
+    }
 }

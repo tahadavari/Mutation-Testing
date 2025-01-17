@@ -3,15 +3,19 @@ namespace LibraryManagment;
 public class Person
 {
     public string Name { get; set; }
+    public string Family { get; set; }
+    public string FullName { get; set; }
     public string ID { get; set; }
     public string Language { get; set; } = "Fa-ir";
     public string Role { get; set; } = "Person";
 
 
-    public Person(string name)
+    public Person(string name = "Unknown", string family = "Unknown")
     {
         Name = name;
+        Family = family;
         ID = "1";
+        FullName = Name + " " + Family;
     }
 
     public virtual string GetInfo()
@@ -31,7 +35,7 @@ public class LibraryMember : Person
     public string ID { get; set; } = Guid.NewGuid().ToString();
     public string Role { get; set; } = "Member";
 
-    public LibraryMember(string name) : base(name)
+    public LibraryMember(string name, string family = "Unknown") : base(name, family)
     {
         BorrowedBooks = new List<Book>();
     }

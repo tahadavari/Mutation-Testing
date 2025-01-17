@@ -9,7 +9,6 @@ public class OverridingMethodDeletion : IMutator
 {
     public string ApplyMutation(string originalContent)
     {
-        Console.WriteLine(Mutate(originalContent));
         return Mutate(originalContent);
     }
 
