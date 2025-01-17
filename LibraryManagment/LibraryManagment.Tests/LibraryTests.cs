@@ -1,6 +1,6 @@
 namespace LibraryManagment.Tests;
 
-public class UnitTest1
+public class LibraryTests
 {
     [Fact]
     public void AddBook_ShouldAddBookToLibrary()
@@ -32,11 +32,12 @@ public class UnitTest1
         // Assert
         Assert.DoesNotContain(book, libraryBooks);
     }
+
     [Fact]
     public void BorrowBook_ShouldAddBookToBorrowedBooks()
     {
         // Arrange
-        var member = new LibraryMember("Bob", "M456");
+        var member = new LibraryMember("Bob");
         var book = new Book("C# Programming", "John Doe");
 
         // Act
@@ -50,7 +51,7 @@ public class UnitTest1
     public void ReturnBook_ShouldRemoveBookFromBorrowedBooks()
     {
         // Arrange
-        var member = new LibraryMember("Bob", "M456");
+        var member = new LibraryMember("Bob");
         var book = new Book("C# Programming", "John Doe");
         member.BorrowBook(book);
 
@@ -59,5 +60,18 @@ public class UnitTest1
 
         // Assert
         Assert.DoesNotContain(book, member.BorrowedBooks);
+    }
+
+    [Fact]
+    public void LibraryPerson_DontHaveIdOne_WhenInitialized()
+    {
+        // Arrange
+        var member = new LibraryMember("Bob");
+
+        // Act
+        var actual = member.ID;
+
+        // Assert
+        Assert.NotEqual("1", actual);
     }
 }

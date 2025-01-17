@@ -5,10 +5,10 @@ public class Person
     public string Name { get; set; }
     public string ID { get; set; }
 
-    public Person(string name, string id)
+    public Person(string name)
     {
         Name = name;
-        ID = id;
+        ID = "1";
     }
 
     public virtual void ShowDetails()
@@ -20,14 +20,21 @@ public class Person
 public class LibraryMember : Person
 {
     public List<Book> BorrowedBooks { get; set; }
+    // public string ID { get; set; } = Guid.NewGuid().ToString();
 
-    public LibraryMember(string name, string id) : base(name, id)
+    public LibraryMember(string name) : base(name)
     {
         BorrowedBooks = new List<Book>();
     }
 
+
     public void BorrowBook(Book book)
     {
+        if (ID == "1")
+        {
+            return;
+        }
+
         BorrowedBooks.Add(book);
         Console.WriteLine($"{Name} borrowed the book: {book.Title}");
     }
@@ -38,7 +45,6 @@ public class LibraryMember : Person
         Console.WriteLine($"{Name} returned the book: {book.Title}");
     }
 
-    // Override متد نمایش جزئیات برای عضو
     public override void ShowDetails()
     {
         base.ShowDetails();
@@ -64,7 +70,7 @@ public class Book
 
 public class LibraryManager : Person
 {
-    public LibraryManager(string name, string id) : base(name, id)
+    public LibraryManager(string name, string id) : base(name)
     {
     }
 
@@ -87,7 +93,6 @@ public class LibraryManager : Person
     }
 }
 
-
 public class Program
 {
     public static void Main(string[] args)
@@ -101,7 +106,7 @@ public class Program
         manager.AddBook(libraryBooks, book1);
         manager.AddBook(libraryBooks, book2);
 
-        LibraryMember member = new LibraryMember("Bob", "M456");
+        LibraryMember member = new LibraryMember("Bob");
 
         member.BorrowBook(book1);
 

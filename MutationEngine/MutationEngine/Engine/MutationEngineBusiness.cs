@@ -10,7 +10,7 @@ public static class MutationEngineBusiness
     {
         List<IMutator> mutators =
         [
-            new AccessModifierChangeMutator(),
+            // new AccessModifierChangeMutator(),
             new HidingVariableDeletionMutator()
         ];
 
