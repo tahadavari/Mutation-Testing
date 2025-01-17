@@ -100,7 +100,7 @@ public class LibraryTests
         // Assert
         Assert.Equal("Fa-ir", actual);
     }
-    
+
     [Fact]
     public void MemberGetInfo_ShouldReturnMemberInfo()
     {
@@ -112,5 +112,31 @@ public class LibraryTests
 
         // Assert
         Assert.Equal("Member Info: Name: Bob, ID: 1", actual);
+    }
+
+    [Fact]
+    public void LibraryMemberGetId_ShouldReturnMemberId()
+    {
+        // Arrange
+        var member = new LibraryMember("Bob");
+
+        // Act
+        var actual = member.GetId();
+
+        // Assert
+        Assert.NotEqual("1", actual);
+    }
+    
+    [Fact]
+    public void GetBaseRole_ShouldReturnPersonRole()
+    {
+        // Arrange
+        var member = new LibraryMember("Bob");
+
+        // Act
+        var actual = member.GetBaseRole();
+
+        // Assert
+        Assert.Equal("Person", actual);
     }
 }

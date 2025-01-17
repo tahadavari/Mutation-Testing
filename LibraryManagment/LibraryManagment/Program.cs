@@ -5,6 +5,8 @@ public class Person
     public string Name { get; set; }
     public string ID { get; set; }
     public string Language { get; set; } = "Fa-ir";
+    public string Role { get; set; } = "Person";
+
 
     public Person(string name)
     {
@@ -27,6 +29,7 @@ public class LibraryMember : Person
 {
     public List<Book> BorrowedBooks { get; set; }
     public string ID { get; set; } = Guid.NewGuid().ToString();
+    public string Role { get; set; } = "Member";
 
     public LibraryMember(string name) : base(name)
     {
@@ -36,6 +39,16 @@ public class LibraryMember : Person
     public override string GetInfo()
     {
         return "Member Info: " + base.GetInfo();
+    }
+
+    public string GetId()
+    {
+        return ID;
+    }
+
+    public string GetBaseRole()
+    {
+        return base.Role;
     }
 
 

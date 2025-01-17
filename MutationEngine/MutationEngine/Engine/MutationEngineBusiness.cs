@@ -14,6 +14,8 @@ public static class MutationEngineBusiness
             // new HidingVariableDeletionMutator(),
             // new HidingVariableInsertionMutator(),
             // new OverridingMethodDeletion()
+            // new SuperKeywordInsertion() // ToDo Complete the implementation
+            new SuperKeywordDeletion()
         ];
 
         var totalScore = 0.0;
