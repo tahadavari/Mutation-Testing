@@ -5,7 +5,7 @@ using MutationEngine.Abstractions;
 
 namespace MutationEngine.Mutators;
 
-public class SuperKeywordDeletion : IMutator
+public class SuperKeywordDeletionMutator : IMutator
 {
     public string ApplyMutation(string originalContent)
     {

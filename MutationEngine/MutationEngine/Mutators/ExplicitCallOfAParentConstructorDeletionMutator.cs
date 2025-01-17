@@ -5,7 +5,7 @@ using MutationEngine.Abstractions;
 
 namespace MutationEngine.Mutators;
 
-public class ExplicitCallOfAParentConstructorDeletion : IMutator
+public class ExplicitCallOfAParentConstructorDeletionMutator : IMutator
 {
     public string ApplyMutation(string originalContent)
     {

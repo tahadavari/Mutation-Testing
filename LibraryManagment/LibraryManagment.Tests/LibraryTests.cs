@@ -180,4 +180,44 @@ public class LibraryTests
         // Assert
         Assert.Equal(nationalCode, person.nationalCode);
     }
+
+    [Fact]
+    public void LibraryCartId_ShouldValidGuid()
+    {
+        // Arrange
+
+        // Act
+        var cart = new LibraryCart();
+
+        // Assert
+        Assert.NotEqual(cart.ID, "-1");
+    }
+
+    [Fact]
+    public void AddRandomBook_ShouldAddBookToLibrary()
+    {
+        // Arrange
+        var libraryBooks = new List<Book>();
+        var manager = new LibraryManager("Alice", "M123");
+
+        // Act
+        var actual = manager.AddRandomBook(libraryBooks);
+
+        // Assert
+        Assert.Equal(actual.GetBookType(), "Book");
+    }
+
+    [Fact]
+    public void CompareBook_ShouldCompareBooksWithProperty()
+    {
+        // Arrange
+        var book1 = new Book("C# Programming", "John Doe");
+        var book2 = new Book("C# Programming", "John Doe");
+
+        // Act
+        var actual = book1.ComparerBook(book2);
+
+        // Assert
+        Assert.False(actual);
+    }
 }

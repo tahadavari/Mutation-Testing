@@ -106,6 +106,21 @@ public class Book
     {
         return "Book";
     }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        var other = obj as Book;
+
+        return Title == other.Title && Author == other.Author;
+    }
+
+    public bool ComparerBook(Book book)
+    {
+        return this == book;
+    }
 }
 
 public class EducationalBook : Book
@@ -141,6 +156,15 @@ public class LibraryManager : Person
         return book;
     }
 
+    public Book AddRandomBook(List<Book> books)
+    {
+        var book = new Book("Random Educational Book", "Random Author");
+        books.Add(book);
+        Console.WriteLine($"Book added: {book.Title} by {book.Author}");
+        return book;
+    }
+
+
     public void RemoveBook(List<Book> books, Book book)
     {
         books.Remove(book);
@@ -151,6 +175,16 @@ public class LibraryManager : Person
     {
         base.ShowDetails();
         Console.WriteLine("Library Manager details displayed.");
+    }
+}
+
+public class LibraryCart
+{
+    public string ID { get; set; } = "-1";
+
+    public LibraryCart()
+    {
+        ID = Guid.NewGuid().ToString();
     }
 }
 

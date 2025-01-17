@@ -5,7 +5,7 @@ using MutationEngine.Abstractions;
 
 namespace MutationEngine.Mutators;
 
-public class OverridingMethodDeletion : IMutator
+public class OverridingMethodDeletionMutator : IMutator
 {
     public string ApplyMutation(string originalContent)
     {
