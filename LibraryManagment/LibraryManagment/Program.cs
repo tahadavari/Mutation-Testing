@@ -4,6 +4,7 @@ public class Person
 {
     public string Name { get; set; }
     public string ID { get; set; }
+    public string Language { get; set; } = "Fa-ir";
 
     public Person(string name)
     {
@@ -21,7 +22,6 @@ public class LibraryMember : Person
 {
     public List<Book> BorrowedBooks { get; set; }
     public string ID { get; set; } = Guid.NewGuid().ToString();
-
     public LibraryMember(string name) : base(name)
     {
         BorrowedBooks = new List<Book>();

@@ -74,4 +74,30 @@ public class LibraryTests
         // Assert
         Assert.NotEqual("1", actual);
     }
+
+    [Fact]
+    public void LibraryPersonMemberLanguage_MustFaIr_WhenInitialized()
+    {
+        // Arrange
+        var member = new LibraryMember("Bob");
+
+        // Act
+        var actual = member.Language;
+
+        // Assert
+        Assert.Equal("Fa-ir", actual);
+    }
+
+    [Fact]
+    public void LibraryPersonManagerLanguage_MustFaIr_WhenInitialized()
+    {
+        // Arrange
+        var member = new LibraryManager("Bob", "M123");
+
+        // Act
+        var actual = member.Language;
+
+        // Assert
+        Assert.Equal("Fa-ir", actual);
+    }
 }

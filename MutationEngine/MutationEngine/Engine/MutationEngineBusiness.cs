@@ -11,7 +11,8 @@ public static class MutationEngineBusiness
         List<IMutator> mutators =
         [
             // new AccessModifierChangeMutator(),
-            new HidingVariableDeletionMutator()
+            // new HidingVariableDeletionMutator(),
+            new HidingVariableInsertionMutator()
         ];
 
         var totalScore = 0.0;
